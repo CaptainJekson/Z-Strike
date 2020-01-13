@@ -14,10 +14,10 @@ public class PlayerAnimation : MonoBehaviour
         set { _animator.SetInteger("State", (int)value); }        
     }
 
-    public float CurrentWeapon
+    public float HandState
     {
-        get { return _animator.GetFloat("CurrentWeapons"); }
-        set { _animator.SetFloat("CurrentWeapons", value); }
+        get { return _animator.GetFloat("Hand State"); }
+        set { _animator.SetFloat("Hand State", value); }
     }
 
     private void Awake()

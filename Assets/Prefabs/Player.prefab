@@ -182,6 +182,8 @@ MonoBehaviour:
   _graviry: 9.81
   _weapons:
   - {fileID: 4889232174835931261}
+  - {fileID: 4889232174835931261}
+  - {fileID: 4889232174835931261}
 --- !u!114 &1436726274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,6 +772,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pistol1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645827218194581136, guid: b597f0602f868b944b42da51b9344e28,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5586174740811516575, guid: b597f0602f868b944b42da51b9344e28,
         type: 3}

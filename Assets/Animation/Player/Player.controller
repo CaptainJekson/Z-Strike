@@ -83,7 +83,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: CurrentWeapons
+  - m_Name: Hand State
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -134,7 +134,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: CurrentWeapons
+  m_BlendParameter: Hand State
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 2
@@ -198,7 +198,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: RunToRifle
     m_Mirror: 0
-  m_BlendParameter: CurrentWeapons
+  m_BlendParameter: Hand State
   m_BlendParameterY: RunToRifle
   m_MinThreshold: 0
   m_MaxThreshold: 2
@@ -227,7 +227,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 2245403082808230560}
   m_Tag: 
-  m_SpeedParameter: CurrentWeapons
+  m_SpeedParameter: Hand State
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 

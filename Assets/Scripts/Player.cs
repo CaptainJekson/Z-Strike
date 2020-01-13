@@ -19,11 +19,15 @@ public class Player : MonoBehaviour
     private Weapon _weapon;
 
     private CharacterController _controller;
+    private PlayerAnimation _playerAnimation;
+
     public float Velocity => _controller.velocity.magnitude / _speed;
+    public Weapon Weapon => _weapon;
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
+        _playerAnimation = GetComponent<PlayerAnimation>();
         _weapon = _weapons[0];
     }
 
@@ -63,14 +67,18 @@ public class Player : MonoBehaviour
 
     public void WeaponSelection(int weaponNumber)
     {
-        _weapon.gameObject.SetActive(false);
+        _playerAnimation.HandState = _weapons[weaponNumber].HandState;
 
+        _weapon.gameObject.SetActive(false);
         _weapon = _weapons[weaponNumber];
         _weapon.gameObject.SetActive(true);
     }
 
     public void Shoot()
     {
-        _weapon.Fire();
+        if (_weapon.Ammunition > 0)
+        {
+            _weapon.Fire(1);
+        }
     }
 }

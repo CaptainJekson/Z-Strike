@@ -10,21 +10,16 @@ public class WeaponButtons : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private PlayerAnimation _playerAnimation;
 
-    public void OnUnarmedButtonClick(int weaponNumber)
+    private bool _isFire;
+
+    private void Update()
     {
-        _playerAnimation.CurrentWeapon = (float)HandState.unarmed;
-        _player.WeaponSelection(weaponNumber);
+        if (_isFire && _player.Weapon.IsAutomatic)
+            ShootButtonPressed?.Invoke();
     }
 
-    public void OnPistolButtonClick(int weaponNumber)
+    public void OnSelectionWeaponClick(int weaponNumber)
     {
-        _playerAnimation.CurrentWeapon = (float)HandState.pistol;
-        _player.WeaponSelection(weaponNumber);
-    }
-
-    public void OnRifleButtonClick(int weaponNumber)
-    {
-        _playerAnimation.CurrentWeapon = (float)HandState.rifle;
         _player.WeaponSelection(weaponNumber);
     }
 
@@ -33,10 +28,13 @@ public class WeaponButtons : MonoBehaviour
         ShootButtonPressed?.Invoke();
     }
 
-    public enum HandState
+    public void OnShootButtonClickDown()
     {
-        unarmed,
-        pistol,
-        rifle
+        _isFire = true;
+    }
+
+    public void OnShootButtonClickUp()
+    {
+        _isFire = false;
     }
 }
