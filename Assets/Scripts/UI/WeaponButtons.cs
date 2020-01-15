@@ -14,7 +14,7 @@ public class WeaponButtons : MonoBehaviour
 
     private void Update()
     {
-        if (_isFire && _player.Weapon.IsAutomatic)
+        if (_isFire && _player.CurrentWeapon.IsAutomatic)
             ShootButtonPressed?.Invoke();
     }
 

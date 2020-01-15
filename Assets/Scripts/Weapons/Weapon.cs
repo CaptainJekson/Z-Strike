@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private PlayerAnimation _playerAnimation;
-
     [Header("Позиция рук")]
     [SerializeField] private State _handState;
 
@@ -15,10 +13,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _rate;
     [SerializeField] private bool _isAutomatic;
 
-    [Header("Дульное пламя, патрон и гильза")]
+    [Header("Дульное пламя и патрон")]
     [SerializeField] private ParticleSystem _muzzleFlame;
     [SerializeField] private ParticleSystem _bullet;
-    [SerializeField] private GameObject _sleeve;
+
+    [Header("гильза и её позиция")]
+    [SerializeField] private Sleeve _shell;
+    [SerializeField] private Vector3 _positionSleeve;
 
     [Header("Звук стрельбы")]
     [SerializeField] private AudioSource _shootingSound;
@@ -39,7 +40,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire(int quantityBullet)
     {
-        if(CanAttack && _ammunition > 0)
+        if (CanAttack && _ammunition > 0)
         {
             _bullet.Play();
             _muzzleFlame.Play();
@@ -47,8 +48,15 @@ public class Weapon : MonoBehaviour
             _ammunition -= quantityBullet;
             _shootCooldown = _rate;
 
-            Instantiate(_sleeve, transform.position, transform.rotation); // <<================ ПОВОРОТ
+            if (_shell != null)
+                ShellDropping();
         }
+    }
+
+    private void ShellDropping()
+    {
+        Sleeve newSleeve = Instantiate(_shell, transform.position + _positionSleeve, transform.rotation);
+        newSleeve.Direction = -transform.forward;
     }
 
     public enum State

@@ -9,6 +9,8 @@ public class Sleeve : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
+    public Vector3 Direction { get; set; }
+
     private void Awake()
     {
         _rigidbody = GetComponentInChildren<Rigidbody>();
@@ -16,7 +18,9 @@ public class Sleeve : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody.AddForce(Vector3.right * _recoilForce, ForceMode.Impulse);
+        _rigidbody.AddForce(Direction * _recoilForce, ForceMode.Impulse);
+
         Destroy(gameObject, _lifeTime);
     }
+
 }

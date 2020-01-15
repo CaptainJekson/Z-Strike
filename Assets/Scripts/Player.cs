@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public event UnityAction PlayerIdles;
     public event UnityAction PlayerMoves;
+    public event UnityAction PlayerShotOrСhange;
 
     [SerializeField] private Joystick _joystick;
     [SerializeField] private WeaponButtons _weaponButtons;
@@ -16,19 +17,19 @@ public class Player : MonoBehaviour
     [SerializeField] private float _graviry = 9.81f;
 
     [SerializeField] private List<Weapon> _weapons;
-    private Weapon _weapon;
+    private Weapon _currentWeapon;
 
     private CharacterController _controller;
     private PlayerAnimation _playerAnimation;
 
     public float Velocity => _controller.velocity.magnitude / _speed;
-    public Weapon Weapon => _weapon;
+    public Weapon CurrentWeapon => _currentWeapon;
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _playerAnimation = GetComponent<PlayerAnimation>();
-        _weapon = _weapons[0];
+        _currentWeapon = _weapons[0];
     }
 
     private void OnEnable()
@@ -69,16 +70,19 @@ public class Player : MonoBehaviour
     {
         _playerAnimation.HandState = _weapons[weaponNumber].HandState;
 
-        _weapon.gameObject.SetActive(false);
-        _weapon = _weapons[weaponNumber];
-        _weapon.gameObject.SetActive(true);
+        _currentWeapon.gameObject.SetActive(false);
+        _currentWeapon = _weapons[weaponNumber];
+        _currentWeapon.gameObject.SetActive(true);
+
+        PlayerShotOrСhange?.Invoke();
     }
 
     public void Shoot()
     {
-        if (_weapon.Ammunition > 0)
+        if (_currentWeapon.Ammunition > 0)
         {
-            _weapon.Fire(1);
+            _currentWeapon.Fire(1);
+            PlayerShotOrСhange?.Invoke();
         }
     }
 }
