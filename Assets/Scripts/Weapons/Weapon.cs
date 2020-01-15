@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class Weapon : MonoBehaviour
     [Header("Звук стрельбы")]
     [SerializeField] private AudioSource _shootingSound;
 
+    [Header("Иконка оружия")]
+    [SerializeField] private Sprite _icon;
+
     private float _shootCooldown;
     private bool CanAttack => _shootCooldown <= 0.0f;
 
@@ -31,6 +35,7 @@ public class Weapon : MonoBehaviour
     public int Ammunition => _ammunition;
     public bool IsAutomatic => _isAutomatic;
     public float HandState => (float)_handState;
+    public Sprite Icon => _icon;
 
     private void Update()
     {
