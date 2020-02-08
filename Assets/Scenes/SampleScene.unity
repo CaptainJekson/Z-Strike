@@ -252,6 +252,26 @@ PrefabInstance:
       propertyPath: _weaponButtons
       value: 
       objectReference: {fileID: 85886404}
+    - target: {fileID: 1777017355010168716, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777017355010168716, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _quantityBullets
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777017355010168716, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.z
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777017355010168716, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.x
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2364320898347714572, guid: a4c10a0baaf7e76469e0d3268df62a13,
         type: 3}
       propertyPath: _handState
@@ -293,6 +313,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891957575513172308, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _quantityBullets
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891957575513172308, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259225181047708341, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.y
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259225181047708341, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _quantityBullets
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259225181047708341, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.z
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259225181047708341, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: _positionSleeve.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499128051243245073, guid: a4c10a0baaf7e76469e0d3268df62a13,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7194771930713759451, guid: a4c10a0baaf7e76469e0d3268df62a13,
         type: 3}

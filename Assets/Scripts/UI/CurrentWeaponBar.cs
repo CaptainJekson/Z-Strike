@@ -30,6 +30,5 @@ public class CurrentWeaponBar : MonoBehaviour
     {
         _ammunition.text = _player.CurrentWeapon.Ammunition.ToString();
         _image.sprite = _player.CurrentWeapon.Icon;
-
     }
 }

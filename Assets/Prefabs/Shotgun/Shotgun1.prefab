@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handState: 2
   _damage: 10
-  _ammunition: 30
+  _quantityBullets: 0
   _rate: 0.8
   _isAutomatic: 0
   _muzzleFlame: {fileID: 251601737455355079}
@@ -342,6 +342,11 @@ PrefabInstance:
     - target: {fileID: 5723775352037052329, guid: 2ace467169aefe84086f60364dd1c22c,
         type: 3}
       propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723775352037052329, guid: 2ace467169aefe84086f60364dd1c22c,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

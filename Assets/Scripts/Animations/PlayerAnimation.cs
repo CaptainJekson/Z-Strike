@@ -8,6 +8,13 @@ public class PlayerAnimation : MonoBehaviour
     private Animator _animator;
     private Player _player;
 
+    enum CharState
+    {
+        Idle,
+        Run,
+        Die
+    }
+
     private CharState State
     {
         get { return (CharState)_animator.GetInteger("State"); }
@@ -40,12 +47,5 @@ public class PlayerAnimation : MonoBehaviour
         _player.PlayerMoves -= () => _animator.speed = _player.Velocity;
         _player.PlayerIdles -= () => State = CharState.Idle;
         _player.PlayerIdles -= () => _animator.speed = 1;
-    }
-
-    enum CharState
-    {
-        Idle,
-        Run,
-        Die
     }
 }

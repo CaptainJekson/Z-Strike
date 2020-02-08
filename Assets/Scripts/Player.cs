@@ -6,10 +6,6 @@ using UnityEngine.Events;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    public event UnityAction PlayerIdles;
-    public event UnityAction PlayerMoves;
-    public event UnityAction PlayerShotOrСhange;
-
     [SerializeField] private Joystick _joystick;
     [SerializeField] private WeaponButtons _weaponButtons;
 
@@ -17,24 +13,31 @@ public class Player : MonoBehaviour
     [SerializeField] private float _graviry = 9.81f;
 
     [SerializeField] private List<Weapon> _weapons;
-    private Weapon _currentWeapon;
-
     private CharacterController _controller;
     private PlayerAnimation _playerAnimation;
 
+    public event UnityAction PlayerIdles;
+    public event UnityAction PlayerMoves;
+    public event UnityAction PlayerShotOrСhange;
+
     public float Velocity => _controller.velocity.magnitude / _speed;
-    public Weapon CurrentWeapon => _currentWeapon;
+    public Weapon CurrentWeapon { get; private set; }
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _playerAnimation = GetComponent<PlayerAnimation>();
-        _currentWeapon = _weapons[0];
+        CurrentWeapon = _weapons[0];
     }
 
     private void OnEnable()
     {
         _weaponButtons.ShootButtonPressed += Shoot;
+    }
+
+    private void OnDisable()
+    {
+        _weaponButtons.ShootButtonPressed -= Shoot;
     }
 
     private void Update()
@@ -43,16 +46,12 @@ public class Player : MonoBehaviour
         {
             Rotate();
             Moving();
+            Shoot();        // <<---- DEBUG
         }
         else
         {
             PlayerIdles?.Invoke();
         }
-    }
-
-    private void OnDisable()
-    {
-        _weaponButtons.ShootButtonPressed -= Shoot;
     }
 
     private void Moving()
@@ -70,18 +69,18 @@ public class Player : MonoBehaviour
     {
         _playerAnimation.HandState = _weapons[weaponNumber].HandState;
 
-        _currentWeapon.gameObject.SetActive(false);
-        _currentWeapon = _weapons[weaponNumber];
-        _currentWeapon.gameObject.SetActive(true);
+        CurrentWeapon.gameObject.SetActive(false);
+        CurrentWeapon = _weapons[weaponNumber];
+        CurrentWeapon.gameObject.SetActive(true);
 
-        PlayerShotOrСhange?.Invoke();
+        PlayerShotOrСhange?.Invoke();   
     }
 
     public void Shoot()
     {
-        if (_currentWeapon.Ammunition > 0)
+        if (CurrentWeapon.Ammunition > 0)
         {
-            _currentWeapon.Fire(1);
+            CurrentWeapon.Fire(1);
             PlayerShotOrСhange?.Invoke();
         }
     }

@@ -8,8 +8,7 @@ public class Sleeve : MonoBehaviour
     [SerializeField] private float _lifeTime;
 
     private Rigidbody _rigidbody;
-
-    public Vector3 Direction { get; set; }
+    public Vector3 Direction {private get; set; }
 
     private void Awake()
     {
@@ -22,5 +21,4 @@ public class Sleeve : MonoBehaviour
 
         Destroy(gameObject, _lifeTime);
     }
-
 }

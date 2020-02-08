@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handState: 1
   _damage: 25
-  _ammunition: 30
+  _quantityBullets: 0
   _rate: 0.4
   _isAutomatic: 0
   _muzzleFlame: {fileID: 2615506847770277440}
@@ -298,6 +298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723775352037052329, guid: 2ace467169aefe84086f60364dd1c22c,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ace467169aefe84086f60364dd1c22c, type: 3}

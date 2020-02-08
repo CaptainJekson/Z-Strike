@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     [Header("Характеристики оружия")]
     [SerializeField] private int _damage;
-    [SerializeField] private int _ammunition;
+    [SerializeField] private int _quantityBullets;
     [SerializeField] private float _rate;
     [SerializeField] private bool _isAutomatic;
 
@@ -31,8 +31,15 @@ public class Weapon : MonoBehaviour
     private float _shootCooldown;
     private bool CanAttack => _shootCooldown <= 0.0f;
 
+    public enum State
+    {
+        unarmed,
+        pistol,
+        rifle
+    }
+
     public int Damage => _damage;
-    public int Ammunition => _ammunition;
+    public int Ammunition => _quantityBullets;
     public bool IsAutomatic => _isAutomatic;
     public float HandState => (float)_handState;
     public Sprite Icon => _icon;
@@ -43,14 +50,14 @@ public class Weapon : MonoBehaviour
             _shootCooldown -= Time.deltaTime;
     }
 
-    public void Fire(int quantityBullet)
+    public void Fire(int quantityBullets)
     {
-        if (CanAttack && _ammunition > 0)
+        if (CanAttack && _quantityBullets > 0)
         {
             _bullet.Play();
             _muzzleFlame.Play();
             _shootingSound.Play();
-            _ammunition -= quantityBullet;
+            _quantityBullets -= quantityBullets;
             _shootCooldown = _rate;
 
             if (_shell != null)
@@ -62,12 +69,5 @@ public class Weapon : MonoBehaviour
     {
         Sleeve newSleeve = Instantiate(_shell, transform.position + _positionSleeve, transform.rotation);
         newSleeve.Direction = -transform.forward;
-    }
-
-    public enum State
-    {
-        unarmed,
-        pistol,
-        rifle
     }
 }

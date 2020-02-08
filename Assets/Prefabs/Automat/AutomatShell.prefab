@@ -62,6 +62,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1738048274328188516, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738048274328188516, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738048274328188516, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2117348265960984808, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be,
         type: 3}
       propertyPath: m_Radius
@@ -76,6 +91,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AutomatShell
+      objectReference: {fileID: 0}
+    - target: {fileID: 7018763954251684182, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be,
+        type: 3}
+      propertyPath: _recoilForce
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a2f6e50a6cb38445bbe60b5e6cbb0be, type: 3}

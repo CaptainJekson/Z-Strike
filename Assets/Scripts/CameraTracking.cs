@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraTracking : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-
     [SerializeField] private Vector3 _indentPosition;
 
     private void Update()

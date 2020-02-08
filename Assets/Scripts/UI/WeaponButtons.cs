@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class WeaponButtons : MonoBehaviour
 {
-    public event UnityAction ShootButtonPressed;
-
     [SerializeField] private Player _player;
     [SerializeField] private PlayerAnimation _playerAnimation;
 
     private bool _isFire;
+
+    public event UnityAction ShootButtonPressed;
 
     private void Update()
     {

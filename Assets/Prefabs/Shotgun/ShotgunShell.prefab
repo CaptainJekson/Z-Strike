@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ec727ac4ab3d248a1ebf70f1354ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recoilForce: 0.3
+  _recoilForce: 0.08
   _lifeTime: 5
 --- !u!1 &268035607412087419
 GameObject:
